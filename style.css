@@ -2,3 +2,37 @@
   display: none;
   color: red;
 }
+
+.isActive {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.isActive.active {
+  background-color: green;
+}
+
+.container {
+  width: 60%;
+  height: 400px;
+}
+
+.container img {
+  max-width: 100%;
+}
+
+.search-user {
+  display: none;
+}
+
+.search-user,
+.select-user {
+  transition: 2s;
+}
+
+.select-user {
+  display: flex;
+  transition: 2s;
+}

@@ -1,13 +1,13 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "ilyass2002@-@-";
+$password = "password";
 $dbname = "chatapp";
 $dsn = "mysql:host=$servername;dbname=$dbname";
 try {
     $db = new PDO($dsn, $username, $password);
 } catch (PDOException $e) {
     $error = "Database Error " . $e->getMessage();
-    include("../view/error.php");
+    include("../../error.php");
     exit();
 }

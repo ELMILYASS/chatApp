@@ -56,3 +56,6 @@ if ($email && $fname && $lname && $password) {
 
     echo "All input fields are required ";
 }
+
+
+
