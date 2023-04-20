@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --main-color: #0051cdbd;
+}
 .error {
   display: none;
   color: red;
@@ -14,15 +25,6 @@
   background-color: green;
 }
 
-.container {
-  width: 60%;
-  height: 400px;
-}
-
-.container img {
-  max-width: 100%;
-}
-
 .search-user {
   display: none;
 }
@@ -35,4 +37,106 @@
 .select-user {
   display: flex;
   transition: 2s;
+}
+
+main {
+  height: 100vh;
+}
+.container.signup {
+  display: flex;
+  height: 100%;
+}
+
+.signup .left,
+.signup .right {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  padding: 20px 60px;
+}
+
+.signup .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup .left h1 {
+  color: var(--main-color);
+  margin-bottom: 50px;
+}
+.signup img {
+  max-width: 100%;
+  width: 500px;
+}
+
+.signup .right::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #f3f8ff;
+}
+
+.signup .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup form {
+  max-width: 100%;
+  width: 500px;
+  
+}
+
+.signup form .name {
+  display: flex;
+  justify-content: space-between;
+}
+.signup form .name .field {
+  width: 45%;
+}
+.signup form .field {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup form input:not([type="file"]),
+button {
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.signup form input[type="file"] {
+  font-size: 17px;
+}
+.signup form .field label {
+  margin-bottom: 5px;
+}
+
+.signup form .field {
+  margin-bottom: 10px;
+}
+
+.signup form .password {
+  position: relative;
+}
+
+.signup form .password i {
+  top: 50%;
+
+  position: absolute;
+
+  transform: translate(calc(-100% - 10px), -50%);
+}
+
+.signup form button {
+  background-color: var(--main-color);
 }

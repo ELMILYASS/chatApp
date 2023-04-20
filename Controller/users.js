@@ -31,7 +31,8 @@ setInterval(() => {
           let active = users[i]["status"] == "Offline now" ? "" : "active";
 
           user += `
-            <div class="user">
+            <div class="user" onclick=chat(${users[i]["unique_id"]})>
+           
             <img src="model/images/${users[i].img}" alt="image">
             <div>
                 <h4 class="title"> ${users[i]["fname"]} ${users[i]["lname"]}</h4>
@@ -83,7 +84,8 @@ searchInput.onkeyup = () => {
           let active = users[i]["status"] == "Offline now" ? "" : "active";
 
           user += `
-          <div class="user">
+          <div class="user" onclick=chat(${users[i]["unique_id"]})>
+          
           <img src="model/images/${users[i].img}" alt="image">
           <div>
               <h4 class="title"> ${users[i]["fname"]} ${users[i]["lname"]}</h4>
@@ -123,3 +125,7 @@ icon.addEventListener("click", () => {
   search_input.style.display = "flex";
   searchInput.focus();
 });
+
+function chat(id) {
+  location.href = `./chat.php?id=${id}`;
+}

@@ -33,10 +33,10 @@ require("model/database/users_db.php");
             <img src="./prod-pict-xmark_2.png" style="width:20px" alt="">
         </div>
 
-        <div class="users_list">
+        <div class="users_list" >
 
         </div>
-        <div class="search_users_list">
+        <div class="search_users_list" >
 
         </div>
     </div>
