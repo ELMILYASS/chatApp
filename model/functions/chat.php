@@ -13,17 +13,17 @@ if (isset($_SESSION["unique_id"])) {
 
         if ($msgs[$i]["id_sender"] == $id) {
             $msg .= '
-            <div>
-            <img src="model/images/' . $user["img"] . '" alt="img">
-            <p>' . $msgs[$i]["msg"] . '</p>
+            <div class="message received">
+           
+           ' . $msgs[$i]["msg"] . '
             </div>
             
             ';
         } else {
 
             $msg .= '
-        <div>
-        <p>' . $msgs[$i]["msg"] . '</p> 
+        <div class="message sent">
+       ' . $msgs[$i]["msg"] . ' 
         </div>
         ';
         }
@@ -37,3 +37,5 @@ if (isset($_SESSION["unique_id"])) {
 } else {
     echo "session finished";
 }
+
+

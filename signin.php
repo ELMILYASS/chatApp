@@ -7,23 +7,41 @@ if (isset($_SESSION["unique_id"])) {
 
 include("header.php"); ?>
 
-<div class="container">
-    <h1>Realtime Chat App</h1>
-    <div class="error"></div>
-    <form action="#" method="POST">
-        <div class="input">
-            <label>Email</label>
-            <input type="text" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="input">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Enter your password" required>
-        </div>
-        <button>Go to Chat </button>
+<div class="container sign in">
 
-    </form>
+    <div class="part left">
+        <h1>Sign In</h1>
 
-    <p>Not yet signed up? <a href="index.php">Signup now</a></p>
+        <div class="form">
+            <div class="error"></div>
+            <form action="#" method="POST">
+
+                <div class="field input">
+                    <label>Email Address</label>
+                    <input type="text" name="email" placeholder="Enter your email">
+                </div>
+                <div class="field ">
+                    <label>Password</label>
+                    <div class="password">
+                        <input type="password" name="password" placeholder="Enter new password">
+
+                    </div>
+                </div>
+                <button>Go to Chat </button>
+
+            </form>
+
+            <p>Not yet signed up? <a href="index.php">Signup now</a></p>
+        </div>
+    </div>
+
+    <div class="part right">
+        <h1>Chat App</h1>
+        <div class="form">
+            <img src="images/graphics-2.png" alt="">
+        </div>
+    </div>
+</div>
 </div>
 <script src="Controller/signin.js"></script>
 <?php include("footer.php"); ?>

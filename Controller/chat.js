@@ -60,8 +60,8 @@ button.addEventListener("click", () => {
   request.send(form);
 });
 
-let left = document.querySelector(".left");
-
+let left = document.querySelector(".container.chat .friend img.icon");
+console.log(left);
 left.addEventListener("click", () => {
   location.href = "users.php";
 });

@@ -7,39 +7,41 @@ if (!isset($_SESSION["unique_id"])) {
 
 require("model/database/users_db.php");
 ?>
-<div class="container">
-    <div>
-        <?php
-        update_user_id($_SESSION["unique_id"], "Active");
-        $user = get_user_by_uniqueID($_SESSION["unique_id"]);
+<div class="container users">
 
-        ?>
-        <img src="model/images/<?= $user["img"]; ?>" alt="">
-        <div>
-            <h4><?= $user["fname"] . " " . $user["lname"]; ?></h4>
-            <p> <?= $user["status"]; ?></p>
+    <div class="select">
+        <div class="account">
+            <?php
+            update_user_id($_SESSION["unique_id"], "Active");
+            $user = get_user_by_uniqueID($_SESSION["unique_id"]);
+
+            ?>
+            <img src="model/images/<?= $user["img"]; ?>" alt="">
+            <div class="infos">
+                <h2><?= $user["fname"] . " " . $user["lname"]; ?></h2>
+                <p> <?= $user["status"]; ?></p>
+            </div>
+            <button>Logout</button>
+
         </div>
-        <button>Logout</button>
-    </div>
-    <div>
+
         <div class="select-user">
-            <p>Select an user to start chat</p>
+            <input type="text" placeholder="Search ...">
             <i class="fas fa-search"></i>
 
         </div>
-        <div class="search-user">
-
-            <input type="text" placeholder="Search by name ...">
-            <img src="./prod-pict-xmark_2.png" style="width:20px" alt="">
-        </div>
-
-        <div class="users_list" >
-
-        </div>
-        <div class="search_users_list" >
-
-        </div>
+       
     </div>
+
+
+
+    <div class="people users_list ">
+
+    </div>
+    <div class="people users_list searching">
+
+    </div>
+
 </div>
 <script src="Controller/users.js"></script>
 

@@ -31,17 +31,13 @@ setInterval(() => {
           let active = users[i]["status"] == "Offline now" ? "" : "active";
 
           user += `
-            <div class="user" onclick=chat(${users[i]["unique_id"]})>
+            <div class="user ${active}" onclick=chat(${users[i]["unique_id"]})>
            
             <img src="model/images/${users[i].img}" alt="image">
-            <div>
-                <h4 class="title"> ${users[i]["fname"]} ${users[i]["lname"]}</h4>
+         
+                <h3 class="title"> ${users[i]["fname"]} ${users[i]["lname"]}</h3>
                 <p > message</p>
-            </div>
-            
-            <div class="isActive  ${active}"></div>
-            
-            
+          
             </div>
           
           `;
@@ -56,12 +52,10 @@ setInterval(() => {
 let icon = document.querySelector(".select-user i");
 
 let select_user = document.querySelector(".select-user");
-let search_input = document.querySelector(".search-user");
-let xmark = document.querySelector(".search-user img");
 
-let searchInput = document.querySelector(".search-user input");
-
-let search_users_list = document.querySelector(".search_users_list");
+let searchInput = document.querySelector(".select-user input");
+console.log(icon);
+let search_users_list = document.querySelector(".users_list.searching");
 searchInput.onkeyup = () => {
   users_list.style.display = "none";
   let input_term = searchInput.value.trim();
@@ -84,17 +78,14 @@ searchInput.onkeyup = () => {
           let active = users[i]["status"] == "Offline now" ? "" : "active";
 
           user += `
-          <div class="user" onclick=chat(${users[i]["unique_id"]})>
+          <div class="user  ${active}" onclick=chat(${users[i]["unique_id"]})>
           
           <img src="model/images/${users[i].img}" alt="image">
-          <div>
-              <h4 class="title"> ${users[i]["fname"]} ${users[i]["lname"]}</h4>
+  
+              <h3 class="title"> ${users[i]["fname"]} ${users[i]["lname"]}</h3>
               <p > message</p>
-          </div>
-          
-          <div class="isActive  ${active}"></div>
-          
-          
+    
+         
           </div>
         
         `;
@@ -102,6 +93,8 @@ searchInput.onkeyup = () => {
       }
 
       if (user == "") {
+        search_users_list.classList.add("no-user");
+        console.log(search_users_list);
         search_users_list.innerHTML =
           "No user found related to your search term ";
       } else {
@@ -111,20 +104,6 @@ searchInput.onkeyup = () => {
   };
   request.send();
 };
-
-xmark.addEventListener("click", () => {
-  select_user.style.display = "flex";
-  search_input.style.display = "none";
-  users_list.style.display = "block";
-  search_users_list.style.display = "none";
-  searchInput.value = "";
-});
-
-icon.addEventListener("click", () => {
-  select_user.style.display = "none";
-  search_input.style.display = "flex";
-  searchInput.focus();
-});
 
 function chat(id) {
   location.href = `./chat.php?id=${id}`;

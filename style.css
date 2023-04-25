@@ -8,128 +8,162 @@
 
 :root {
   --main-color: #0051cdbd;
+  --secondary-color: #0052cdd8;
+  --text-color: #2f4858;
+  --bg-color: #f3f8ff;
 }
 .error {
   display: none;
   color: red;
+  text-align: center;
+  padding: 20px 0;
 }
 
-.isActive {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: gray;
-}
-
-.isActive.active {
-  background-color: green;
-}
-
-.search-user {
-  display: none;
-}
-
-.search-user,
-.select-user {
-  transition: 2s;
-}
-
-.select-user {
+.container {
+  padding: 40px;
   display: flex;
-  transition: 2s;
-}
-
-main {
-  height: 100vh;
-}
-.container.signup {
-  display: flex;
-  height: 100%;
-}
-
-.signup .left,
-.signup .right {
-  width: 50%;
-  height: 100%;
-  position: relative;
-  padding: 20px 60px;
-}
-
-.signup .left {
-  display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
-.signup .left h1 {
-  color: var(--main-color);
-  margin-bottom: 50px;
-}
-.signup img {
-  max-width: 100%;
-  width: 500px;
+.select {
+  width: 100%;
 }
 
-.signup .right::after {
+.container.sign {
+  align-items: center;
+  flex-direction: row;
+}
+.container.sign.up::after {
   position: absolute;
   content: "";
-  width: 100%;
+  width: 50%;
   height: 100%;
   top: 0;
   left: 0;
   z-index: -1;
   background-color: #f3f8ff;
 }
+.container.sign.in::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #f3f8ff;
+}
+.sign .part {
+  width: 50%;
 
-.signup .right {
+  position: relative;
+  padding: 20px 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-.signup form {
-  max-width: 100%;
-  width: 500px;
-  
+  height: 80%;
 }
 
-.signup form .name {
+@media (max-width: 768px) {
+  .container.sign {
+    flex-direction: column;
+  }
+  .sign .part {
+    width: 100%;
+  }
+  .container.sign::after {
+    display: none;
+  }
+  .container.sign .name {
+    flex-direction: column;
+  }
+  .container.sign .name .field {
+    width: 100%;
+  }
+}
+.sign .part .form {
+  width: 100%;
+}
+.sign .part .form form {
+  width: 100%;
+}
+.sign .part .form p {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.sign .part .form p a {
+  color: var(--main-color);
+}
+.sign .part h1 {
+  color: var(--main-color);
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+.sign img {
+  max-width: 100%;
+  width: 500px;
+  animation: animate linear infinite 1s alternate;
+}
+@keyframes animate {
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+.sign form {
+  max-width: 100%;
+  width: 500px;
+}
+
+.sign form .name {
   display: flex;
   justify-content: space-between;
 }
-.signup form .name .field {
+.sign form .name .field {
   width: 45%;
 }
-.signup form .field {
+.sign form .field {
   display: flex;
   flex-direction: column;
 }
 
-.signup form input:not([type="file"]),
+.sign .form form input:not([type="file"]),
 button {
-  height: 40px;
+  height: 45px;
   width: 100%;
   font-size: 16px;
   padding: 0 10px;
-  border-radius: 5px;
+  border-radius: 25px;
+  outline: none;
   border: 1px solid #ccc;
 }
-.signup form input[type="file"] {
-  font-size: 17px;
+
+.sign .form form input:focus,
+.sign .form form input:hover {
+  border-color: var(--main-color);
 }
-.signup form .field label {
+.sign form .file-upload {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.sign form .field label {
   margin-bottom: 5px;
 }
 
-.signup form .field {
+.sign form .field {
   margin-bottom: 10px;
 }
 
-.signup form .password {
+.sign form .password {
   position: relative;
 }
 
-.signup form .password i {
+.sign form .password i {
   top: 50%;
 
   position: absolute;
@@ -137,6 +171,242 @@ button {
   transform: translate(calc(-100% - 10px), -50%);
 }
 
-.signup form button {
+.sign form button {
   background-color: var(--main-color);
+  cursor: pointer;
+}
+
+.sign form button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* users page */
+
+.account {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.account .infos {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+
+.account img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.account .infos {
+  display: flex;
+  flex-direction: column;
+}
+.account .infos h2 {
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.account button {
+  width: 110px;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  font-weight: 500;
+}
+.account button:hover {
+  background-color: var(--secondary-color);
+}
+
+.select-user {
+  background-color: var(--bg-color);
+  height: 50px;
+  border-radius: 10px 10px 0 0;
+  margin: 27px 0;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  transition: 2s;
+  border-bottom: solid 1px var(--main-color);
+}
+
+.select-user i {
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.select-user {
+  transition: 2s;
+}
+
+.select-user input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  font-size: 16px;
+}
+
+.users .people {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.users .people .user {
+  width: 150px;
+  text-align: center;
+}
+.users .people .user img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.users .people .user h3 {
+  color: var(--text-color);
+}
+@media (max-width: 768px) {
+  .users .people .user {
+    width: 100px;
+  }
+  .users .people .user img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}
+
+.user.active img {
+  border: solid 2px var(--main-color);
+}
+
+/* chat with a user */
+.chat {
+  height: 100vh;
+}
+.chat .account {
+  height: 10%;
+}
+.chat .friend .icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.chat .msgs {
+  width: 100%;
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  padding: 30px;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.msgs::-webkit-scrollbar {
+  width: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.msgs::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 5px;
+}
+
+.chat .send-message {
+  height: 10%;
+  width: 100%;
+}
+.chat .send-message form {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat .send-message form input,
+button {
+  height: 55px;
+}
+.chat .send-message form input {
+  outline: none;
+  background-color: var(--bg-color);
+  width: 70%;
+  font-size: 17px;
+  border-radius: 25px;
+  border: none;
+  padding: 20px;
+  border-bottom: 2px solid var(--main-color);
+}
+.chat .send-message form button {
+  width: 20%;
+  outline: none;
+  background-color: var(--main-color);
+  border: none;
+}
+.chat .send-message form button i {
+  font-size: 20px;
+  color: white;
+}
+.chat .send-message form button:hover {
+  background-color: var(--secondary-color);
+}
+.chat .message {
+  padding: 15px;
+  font-size: 20px;
+  width: 25%;
+  word-wrap: break-word;
+  min-height: 100px;
+  background-color: var(--main-color);
+  margin-bottom: 50px;
+  color: white;
+
+  border-radius: 25px 0 25px 25px;
+}
+
+.chat .message.received {
+  border-radius: 0 25px 25px 25px;
+}
+
+.chat .message.sent {
+  align-self: flex-end;
+}
+@media (max-width: 768px) {
+  .chat .message {
+    width: 70%;
+  }
+  .chat .account,
+  .chat .send-message {
+    height: 5%;
+  }
+
+  .chat .account h2 {
+    font-size: 20px;
+  }
+  .chat .msgs {
+    height: 80%;
+  }
+  .chat .friend .icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+}
+
+.people.no-user {
+  color: var(--main-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
