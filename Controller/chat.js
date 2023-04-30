@@ -28,7 +28,7 @@ setInterval(() => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
-
+msgs.addEventListener("scroll", () => {});
 button.addEventListener("click", () => {
   let message = input.value.trim();
 
@@ -38,7 +38,11 @@ button.addEventListener("click", () => {
     if (request.readyState == 4 && request.status == 200) {
       let response = request.responseText;
       input.value = "";
+
       if (response == "success") {
+        setTimeout(() => {
+          msgs.scrollTo(0, msgs.scrollHeight - msgs.clientHeight);
+        }, 300);
       } else {
         if (response == "session finished") {
           location.href = "signin.php";
@@ -61,7 +65,7 @@ button.addEventListener("click", () => {
 });
 
 let left = document.querySelector(".container.chat .friend img.icon");
-console.log(left);
+
 left.addEventListener("click", () => {
   location.href = "users.php";
 });

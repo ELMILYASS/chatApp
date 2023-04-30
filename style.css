@@ -310,8 +310,20 @@ button {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  align-items: center;
 }
+.chat .message {
+  padding: 15px;
+  font-size: 20px;
+  width: 25%;
+  word-wrap: break-word;
 
+  background-color: var(--main-color);
+  margin-bottom: 50px;
+  color: white;
+
+  border-radius: 25px 0 25px 25px;
+}
 .msgs::-webkit-scrollbar {
   width: 10px;
   background-color: white;
@@ -360,18 +372,6 @@ button {
 }
 .chat .send-message form button:hover {
   background-color: var(--secondary-color);
-}
-.chat .message {
-  padding: 15px;
-  font-size: 20px;
-  width: 25%;
-  word-wrap: break-word;
-  min-height: 100px;
-  background-color: var(--main-color);
-  margin-bottom: 50px;
-  color: white;
-
-  border-radius: 25px 0 25px 25px;
 }
 
 .chat .message.received {

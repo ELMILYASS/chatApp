@@ -6,8 +6,8 @@ if (isset($_SESSION["unique_id"])) {
     $message = $_POST["message"];
     $id_receiver = $_POST["id_receiver"];
     if ($message != "") {
-        add_message($_SESSION["unique_id"], $id_receiver, $message);
         echo "success";
+        add_message($_SESSION["unique_id"], $id_receiver, $message);
     } else {
         echo "Write a message !!!!";
     }

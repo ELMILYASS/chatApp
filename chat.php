@@ -10,7 +10,7 @@ include("header.php");
 
 ?>
 <div class="container chat">
-   
+
     <?php
     $id = $_GET["id"];
     $user = get_user_by_uniqueID($id); ?>
