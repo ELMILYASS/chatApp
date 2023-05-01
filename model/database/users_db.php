@@ -102,5 +102,3 @@ function get_users_without_one($id)
     $statement->closeCursor();
     return $users;
 }
-
-

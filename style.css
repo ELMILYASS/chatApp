@@ -310,7 +310,6 @@ button {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  align-items: center;
 }
 .chat .message {
   padding: 15px;
@@ -379,7 +378,7 @@ button {
 }
 
 .chat .message.sent {
-  align-self: flex-end;
+  align-self: flex-start;
 }
 @media (max-width: 768px) {
   .chat .message {

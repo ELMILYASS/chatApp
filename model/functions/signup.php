@@ -34,6 +34,10 @@ if ($email && $fname && $lname && $password) {
                         $status = "Active";
                         $encrypt_pass = md5($password);
                         $new_img_name = $time . $img_name;
+
+                        if (!is_dir("../images/")) {
+                            mkdir("../images");
+                        }
                         if (move_uploaded_file($tmp_name, "../images/" . $new_img_name)) {
                             add_new_user($random_id, $fname, $lname, $email, $encrypt_pass, $new_img_name, $status);
 
@@ -56,6 +60,3 @@ if ($email && $fname && $lname && $password) {
 
     echo "All input fields are required ";
 }
-
-
-

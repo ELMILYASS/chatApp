@@ -1,8 +1,9 @@
 <?php
 
+session_start();
 require("../database/messages_db.php");
 require("../database/users_db.php");
-session_start();
+
 
 if (isset($_SESSION["unique_id"])) {
     $id = $_POST["id_receiver"];
@@ -37,5 +38,3 @@ if (isset($_SESSION["unique_id"])) {
 } else {
     echo "session finished";
 }
-
-

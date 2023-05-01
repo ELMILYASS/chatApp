@@ -1,5 +1,5 @@
 <?php
-
+@ob_start();
 session_start();
 require("../database/users_db.php");
 

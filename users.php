@@ -1,6 +1,7 @@
-<?php include("header.php");
+<?php
+@ob_start();
 session_start();
-
+include("header.php");
 if (!isset($_SESSION["unique_id"])) {
     header("Location:index.php");
 }
@@ -30,7 +31,7 @@ require("model/database/users_db.php");
             <i class="fas fa-search"></i>
 
         </div>
-       
+
     </div>
 
 

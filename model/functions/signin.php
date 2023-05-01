@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require("../database/users_db.php");
 
@@ -24,7 +25,7 @@ if ($email && $password) {
                 echo "Password isn't correct ";
             }
         } else {
-            echo "No account with this email ".$email;
+            echo "No account with this email " . $email;
         }
     } else {
 
